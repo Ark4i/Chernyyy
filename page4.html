@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Page 4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio autoplay src="audio4.mp3"></audio>
+
+  <div class="page">
+    <div class="main">
+      <div class="left"><img src="image4.png" width="900"></div>
+      <div class="right">
+        <a href="file4.png" download>
+          <button>Download</button>
+        </a>
+                            <audio id="audio" src="audio4.mp3"></audio>
+
+<button onclick="startAudio()">Audio</button>
+
+<script>
+function startAudio() {
+  document.getElementById("audio").play();
+}
+</script>
+      </div>
+    </div>
+    <div class="bottom">
+      <button onclick="alert('End')">Finish</button>
+    </div>
+  </div>
+</body>
+</html>

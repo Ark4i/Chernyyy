@@ -1,116 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GIF Click Sequence</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      transition: background-color 1s;
-    }
-    #gif-container {
-      cursor: pointer;
-    }
-    #current-gif {
-      width: 20vw;
-      transition: width 0.5s;
-    }
-    #final-page {
-      display: none;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      height: 100vh;
-      background-color: #333;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    #final-page .image-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #final-page img {
-      max-height: 80vh;
-    }
-    #final-page .center-content {
-      flex: 1;
-      text-align: center;
-      color: white;
-    }
-    .download-link {
-      color: white;
-      font-size: 20px;
-      text-decoration: none;
-      padding: 10px 20px;
-      background-color: #444;
-      border-radius: 10px;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    .birthday-text {
-      font-size: 48px;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Start</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div id="gif-container">
-    <img id="current-gif" src="gif1.gif" alt="Click Me" />
+<body class="center">
+  <audio id="audio" src="audio.mp3"></audio>
+
+  <div id="playScreen">
+    <button onclick="start()">▶ Play</button>
   </div>
 
-  <div id="final-page">
-    <div class="image-container">
-      <div>
-        <img src="final-image-left.png" alt="Left Image" />
-        <a class="download-link" href="Ladushek-skin.png" download>Download Skin</a>
-      </div>
-    </div>
-    <div class="center-content">
-      <div class="birthday-text">Happy Birthday LaDushek!!!</div>
-    </div>
-    <div class="image-container">
-      <div>
-        <img src="Lad-Voucher.png" alt="Right Image" />
-        <a class="download-link" href="Lad-Voucher.png" download>Download Voucher</a>
-      </div>
-    </div>
+  <div id="gifScreen" class="hidden">
+    <img id="gif" src="main.gif" width="200">
   </div>
 
-  <script>
-    const gifs = ['gif1.gif', 'gif2.gif', 'gif3.gif', 'gif4.gif'];
-    const backgrounds = ['#111', '#222', '#444', '#666', '#888'];
-    let index = 0;
-    let size = 20; // start at 20vw
-
-    const gifContainer = document.getElementById('gif-container');
-    const gifImage = document.getElementById('current-gif');
-    const finalPage = document.getElementById('final-page');
-
-    gifContainer.addEventListener('click', () => {
-      index++;
-      size += 20;
-      if (size > 100) size = 100;
-      gifImage.style.width = size + 'vw';
-
-      document.body.style.backgroundColor = backgrounds[index] || '#888';
-
-      if (index < gifs.length) {
-        gifImage.src = gifs[index];
-      } else {
-        gifContainer.style.display = 'none';
-        finalPage.style.display = 'flex';
-      }
-    });
-  </script>
+<script src="main.js"></script>
 </body>
 </html>
